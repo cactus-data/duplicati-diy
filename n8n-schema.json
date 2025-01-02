@@ -1,0 +1,40 @@
+{
+  "backup_configs": {
+    "host": "{{ $json.headers.host }}",
+    "machine_id": "{{ $json.body.Extra['machine-id'] }}",
+    "machine_name": "{{ $json.body.Extra['machine-name'] }}",
+    "backup_name": "{{ $json.body.Extra['backup-name'] }}",
+    "backup_id": "{{ $json.body.Extra['backup-id'] }}"
+  },
+  "backup_reports": {
+    "host": "{{ $json.headers.host }}",
+    "config_id": "{{ $json.body.config_id }}",
+    "version": "{{ $json.body.Data.Version }}",
+    "begin_time": "{{ $json.body.Data.BeginTime }}",
+    "end_time": "{{ $json.body.Data.EndTime }}",
+    "duration": "{{ $json.body.Data.Duration }}",
+    "main_operation": "{{ $json.body.Data.MainOperation }}",
+    "parsed_result": "{{ $json.body.Data.ParsedResult }}",
+    "interrupted": "{{ $json.body.Data.Interrupted }}",
+    "examined_files": "{{ $json.body.Data.ExaminedFiles }}",
+    "opened_files": "{{ $json.body.Data.OpenedFiles }}",
+    "size_of_examined_files": "{{ $json.body.Data.SizeOfExaminedFiles }}",
+    "size_of_opened_files": "{{ $json.body.Data.SizeOfOpenedFiles }}"
+  },
+  "backend_statistics": {
+    "host": "{{ $json.headers.host }}",
+    "report_id": "{{ $json.body.report_id }}",
+    "remote_calls": "{{ $json.body.Data.BackendStatistics.RemoteCalls }}",
+    "bytes_uploaded": "{{ $json.body.Data.BackendStatistics.BytesUploaded }}",
+    "bytes_downloaded": "{{ $json.body.Data.BackendStatistics.BytesDownloaded }}",
+    "files_uploaded": "{{ $json.body.Data.BackendStatistics.FilesUploaded }}",
+    "files_downloaded": "{{ $json.body.Data.BackendStatistics.FilesDownloaded }}",
+    "files_deleted": "{{ $json.body.Data.BackendStatistics.FilesDeleted }}",
+    "folders_created": "{{ $json.body.Data.BackendStatistics.FoldersCreated }}",
+    "retry_attempts": "{{ $json.body.Data.BackendStatistics.RetryAttempts }}",
+    "known_file_count": "{{ $json.body.Data.BackendStatistics.KnownFileCount }}",
+    "known_file_size": "{{ $json.body.Data.BackendStatistics.KnownFileSize }}",
+    "last_backup_date": "{{ $json.body.Data.BackendStatistics.LastBackupDate }}",
+    "backup_list_count": "{{ $json.body.Data.BackendStatistics.BackupListCount }}"
+  }
+}

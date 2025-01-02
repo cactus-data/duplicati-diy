@@ -1,0 +1,72 @@
+{
+  "backup_configs": {
+    "id": "uuid",
+    "machine_id": "text",
+    "machine_name": "text",
+    "backup_name": "text",
+    "backup_id": "text",
+    "created_at": "timestamptz"
+  },
+  "backup_reports": {
+    "id": "uuid",
+    "config_id": "uuid",
+    "version": "text",
+    "begin_time": "timestamptz",
+    "end_time": "timestamptz",
+    "duration": "interval",
+    "main_operation": "text",
+    "parsed_result": "text",
+    "interrupted": "boolean",
+    "examined_files": "bigint",
+    "opened_files": "bigint",
+    "size_of_examined_files": "bigint",
+    "size_of_opened_files": "bigint",
+    "created_at": "timestamptz"
+  },
+  "backend_statistics": {
+    "id": "uuid",
+    "report_id": "uuid",
+    "remote_calls": "integer",
+    "bytes_uploaded": "bigint",
+    "bytes_downloaded": "bigint",
+    "files_uploaded": "integer",
+    "files_downloaded": "integer",
+    "files_deleted": "integer",
+    "folders_created": "integer",
+    "retry_attempts": "integer",
+    "known_file_count": "integer",
+    "known_file_size": "bigint",
+    "last_backup_date": "timestamptz",
+    "backup_list_count": "integer",
+    "created_at": "timestamptz"
+  },
+  "user_roles": {
+    "id": "uuid",
+    "user_id": "uuid",
+    "role": "text",
+    "created_at": "timestamptz"
+  },
+  "relationships": {
+    "backup_reports": {
+      "config_id": {
+        "references": "backup_configs",
+        "field": "id",
+        "on_delete": "CASCADE"
+      }
+    },
+    "backend_statistics": {
+      "report_id": {
+        "references": "backup_reports",
+        "field": "id",
+        "on_delete": "CASCADE"
+      }
+    },
+    "user_roles": {
+      "user_id": {
+        "references": "auth.users",
+        "field": "id",
+        "on_delete": "CASCADE"
+      }
+    }
+  }
+}
